@@ -205,6 +205,9 @@ def get_conf_path(filename=None):
     if running_under_pytest() or get_safe_mode():
         # Use clean config dir if running tests or the user requests it.
         conf_dir = get_clean_conf_dir()
+    elif os.environ.get("SPYDER_CONFIGDIR",None):
+        # Either set from cli switch or in environment already
+        conf_dir = osp.realpath(os.environ["SPYDER_CONFIGDIR"])
     elif sys.platform.startswith('linux'):
         # This makes us follow the XDG standard to save our settings
         # on Linux, as it was requested on spyder-ide/spyder#2629.

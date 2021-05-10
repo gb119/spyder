@@ -48,6 +48,12 @@ def get_options(argv=None):
         help="Default working directory"
     )
     parser.add_argument(
+        '-c', '--confdir',
+        dest="config_directory",
+        default=None,
+        help="Configuration settings directory"
+    )
+    parser.add_argument(
         '--hide-console',
         action='store_true',
         default=False,

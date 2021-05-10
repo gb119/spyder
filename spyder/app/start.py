@@ -92,6 +92,10 @@ def main():
         # <!> Remove all configuration files!
         reset_config_files()
         return
+    
+    if options.config_directory:
+        # set the environemnt variable for ConfigMananger to use
+        os.environ['SPYDER_CONFIGDIR'] = options.config_directory
 
     from spyder.config.manager import CONF
 
